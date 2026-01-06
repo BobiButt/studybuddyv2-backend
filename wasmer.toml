@@ -1,20 +1,12 @@
-[package]
-name = "your-username/studybuddy-backend"
-version = "0.1.0"
-description = "Laravel backend for StudyBuddy"
-
 [dependencies]
-"php/php" = "8.3.4"
+"php/php" = "=8.3.4"
 
 [fs]
-"/app" = "."
+"/app/" = "."
 
 [[command]]
 name = "run"
 module = "php/php:php"
 runner = "wasi"
-
 [command.annotations.wasi]
-# Use 0.0.0.0 instead of localhost for cloud deployment
-main-args = ["-S", "0.0.0.0:8080", "-t", "/app/public", "/app/public/index.php"]
-env-vars = ["APP_ENV=production", "APP_KEY=base64:your_key_here"]
+main-args = ["-t", "/app/public", "-S", "localhost:8080"]
